@@ -1,0 +1,39 @@
+.rowAround {
+  display: grid;
+  grid-template-columns: 3fr 3fr 2fr 1fr 1fr 1fr;
+  align-items: flex-start;
+  font-size: 20px;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.rowAround {
+  display: grid;
+  grid-template-columns: 2fr 5fr 1fr 0.8fr 0.8fr 0.8fr;
+  align-items: center;
+  font-size: 20px;
+  padding-top: 10px;
+  width: 100%;
+  gap: 3px;
+}
+
+.containerCarrito {
+  padding-left: 100px;
+  width: 500px;
+  /* display: flex;
+  flex-direction: row;
+  align-items: center; */
+  /* justify-content: space-evenly; */
+}
+.btn-agregar {
+  background-color: transparent;
+  border-color: green;
+  border-width: 2px;
+  color: black;
+}
+.btn-quitar {
+  background-color: transparent;
+  border-color: red;
+  border-width: 2px;
+  color: black;
+}

@@ -1,0 +1,16 @@
+.banner {
+  /* background-image: url("../img/Header.jpg"); */
+  --opacidad-negro: 0.7;
+  background-image: linear-gradient(
+      rgba(0, 0, 0, var(--opacidad-negro)),
+      rgba(0, 0, 0, var(--opacidad-negro))
+    ),
+    url("../img/Header.jpg");
+  color: white;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 10px;
+}

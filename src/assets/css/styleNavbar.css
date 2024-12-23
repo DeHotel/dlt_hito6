@@ -1,0 +1,24 @@
+.navbar {
+  background-color: black;
+  color: white;
+  height: 50px;
+  align-items: center;
+}
+
+/* Button {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  margin-left: 15px;
+  font-size: 12px;
+} */
+
+.boton-precio {
+  color: lightblue;
+  border: 1px solid rgb(80, 88, 206);
+  width: 200px;
+  font-size: 14px;
+}
