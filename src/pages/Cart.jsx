@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Button } from "@material-tailwind/react";
 import { formatNumber } from "../utils/formatNumber";
 import { Contexto } from "../context/Contexto";
@@ -26,12 +26,17 @@ const Cart = () => {
     );
   };
 
-  setTotal(
-    carrito.reduce(
-      (total, carrito) => total + carrito.price * carrito.cantidad,
-      0
-    )
-  );
+  useEffect(() => {
+    async function calcularTotal() {
+      setTotal(
+        carrito.reduce(
+          (total, carrito) => total + carrito.price * carrito.cantidad,
+          0
+        )
+      );
+    }
+    calcularTotal();
+  }, [carrito]);
 
   return (
     <>
