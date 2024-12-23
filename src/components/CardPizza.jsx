@@ -23,7 +23,7 @@ const CardPizza = (props) => {
       // El producto no está en el carrito
       setCarrito([...carrito, props.dato]);
     } else {
-      console.log(prod);
+      // console.log(prod);
       // Incrementar en 1 el producto del carrito
       let pizza = prod;
       pizza.cantidad += 1;
