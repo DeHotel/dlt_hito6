@@ -19,23 +19,34 @@ const Pizza = (props) => {
 
   const handleAgregarPizzaAlCarro = () => {
     setTotal(Number(total) + Number(pizza.price));
-    setCarrito([...carrito, pizza]);
-    console.log([...carrito, pizza]);
+    let prod = carrito.find(({ id }) => id === pizza.id);
+    if (prod === undefined) {
+      // El producto no está en el carrito
+      setCarrito([...carrito, pizza]);
+    } else {
+      prod.cantidad += 1;
+      pizza.cantidad = prod.cantidad;
+
+      // Filtrar para NO incluir el producto agragado.
+      let newCarrito = carrito.filter((carr) => carr.id !== pizza.id);
+      // Agregar el nuevo producto
+      setCarrito([pizza, ...newCarrito]);
+    }
   };
 
-  // Por ahora solo se mostrará p001
   useEffect(() => {
-    try {
-      fetch(`http://localhost:5000/api/pizzas/${id}`)
-        // fetch(`http://localhost:5000/api/pizzas/p001`)
-        .then((res) => res.json())
-        .then((data) => {
-          setPizza(data);
-        });
-    } catch {
-      console.error("Error consultando la Pizza: ", error);
+    async function consultaPizza() {
+      try {
+        const respuesta = await fetch(`http://localhost:5000/api/pizzas/${id}`);
+        const result = await respuesta.json();
+        result.cantidad = 1;
+        setPizza(result);
+      } catch (error) {
+        console.error("Error consultando la Pizza: ", error);
+      }
     }
-  }, [id]);
+    consultaPizza();
+  }, []);
 
   if (!pizza) {
     return <div>Cargando...</div>;
